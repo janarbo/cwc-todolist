@@ -1,5 +1,5 @@
-# cwc-todolist
-cwc-todolist is a web application designed to help you manage and track your to-do lists efficiently. It provides a user-friendly interface for adding, updating, and removing tasks.
+# CWC-Todolist
+CWC-Todolist application is designed to help you manage and track your to-do lists efficiently. It provides a user-friendly interface for adding, updating, and removing tasks.
 
 ## Tech Stacks
 - TypeScript
