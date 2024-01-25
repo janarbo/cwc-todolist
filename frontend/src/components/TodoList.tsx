@@ -15,7 +15,7 @@ const TodoList: React.FC = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get<Todo[]>('http://localhost:3000/todos', { withCredentials: true });
+      const response = await axios.get<Todo[]>('http://localhost:3333/todos', { withCredentials: true });
       setTodos(response.data);
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -32,7 +32,7 @@ const TodoList: React.FC = () => {
   const handleAddTodo = async (todoData: any) => {
     try {
       console.log('Adding todo...', todoData);
-      const response = await axios.post('http://localhost:3000/todos', todoData, { withCredentials: true });
+      const response = await axios.post('http://localhost:3333/todos', todoData, { withCredentials: true });
 
       if (response.status === 201) {
         console.log('Todo added successfully!');

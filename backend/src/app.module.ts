@@ -10,6 +10,7 @@ import { Todo } from './todos/todo.entity';
 import { TodoController } from './todos/todo.controller';
 import { TodoService } from './todos/todo.service';
 import * as cors from 'cors'; // Import cors module
+import { AuthModule } from './auth/auth.module';
 
 
 
@@ -25,6 +26,7 @@ import * as cors from 'cors'; // Import cors module
     ),
     UsersModule,
     TypeOrmModule.forFeature([Todo]),
+    AuthModule
   ],
   controllers: [AppController, TodoController],
   providers: [AppService, TodoService],
@@ -32,7 +34,7 @@ import * as cors from 'cors'; // Import cors module
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
 
-    const allowedOrigins = ['http://localhost:3001'];
+    const allowedOrigins = ['http://localhost:3000'];
     const corsOptions: cors.CorsOptions = {
       origin: (origin: string | undefined, callback) => {
         if (!origin || allowedOrigins.includes(origin)) {

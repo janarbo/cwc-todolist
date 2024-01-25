@@ -18,7 +18,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
     try {
       if (todoTitle.trim() !== '') {
         console.log('Adding todo...', { title: todoTitle });
-        const response = await axios.post('http://localhost:3000/todos', { title: todoTitle });
+        const response = await axios.post('http://localhost:3333/todos', { title: todoTitle });
 
         if (response.status === 201) {
           console.log('Todo added successfully!');
