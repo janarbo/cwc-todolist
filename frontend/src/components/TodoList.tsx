@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import TodoForm from './TodoForm';
+import { Box, Center, Table, Thead, Tbody, Tr, Th, Td, Text } from '@chakra-ui/react';
 
 interface Todo {
   id: number;
@@ -52,16 +53,32 @@ const TodoList: React.FC = () => {
   }
 
   return (
-    <div>
-      <h2>Todo List</h2>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
-        ))}
-      </ul>
-      <TodoForm onAddTodo={handleAddTodo} />
-    </div>
+    <Center>
+      <Box width="1/3" marginTop="100">
+        <TodoForm onAddTodo={handleAddTodo} />
+        <Text textAlign="center" fontSize="xl" fontWeight="bold" mb="2">
+          Todo List
+        </Text>
+        <Table variant="simple">
+          <Thead>
+            <Tr>
+              <Th>Number</Th>
+              <Th>Title</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {todos.map((todo, index) => (
+              <Tr key={index}>
+                <Td>{index + 1}</Td>
+                <Td>{todo.title}</Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+      </Box>
+    </Center>
   );
 };
+
 
 export default TodoList;

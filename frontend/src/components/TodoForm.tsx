@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Input, Button, Flex, Center, Box} from '@chakra-ui/react';
+
 
 interface TodoFormProps {
   onAddTodo: (todoData: any) => void;
@@ -20,7 +22,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
 
         if (response.status === 201) {
           console.log('Todo added successfully!');
-          onAddTodo(response.data); 
+          onAddTodo(response.data);
           setTodoTitle('');
         }
       }
@@ -29,17 +31,27 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
     }
   };
 
+
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Enter Todo Title"
-        value={todoTitle}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleAddTodo}>Add Todo</button>
-    </div>
+    <Center>
+      <Box width="1/3" marginTop='4'>
+        <Flex>
+          <Input
+            type="text"
+            placeholder="Enter Todo Title"
+            value={todoTitle}
+            onChange={handleInputChange}
+            mb={2}
+            mr={2}
+          />
+          <Button colorScheme="blue" onClick={handleAddTodo}>
+            Add Todo
+          </Button>
+        </Flex>
+      </Box>
+  </Center>
   );
 };
+
 
 export default TodoForm;
